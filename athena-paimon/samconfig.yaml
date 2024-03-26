@@ -1,0 +1,23 @@
+version: 0.1
+default:
+  deploy:
+    parameters:
+      stack_name: athena-paimon-connector
+      region: us-west-2
+      s3_bucket: S3bucket
+      s3_prefix: S3Prefix
+      confirm_changeset: true
+      capabilities: CAPABILITY_IAM
+      parameter_overrides:
+        - AthenaCatalogName=paimon
+        - SpillBucket=paimon-resc
+        - SpillPrefix=athena-spill
+        - PaimonDataBucket=paimon-resc
+        - PaimonDataPrefix=data/paimon/
+        - AWSAccessKey=Access Key
+        - AWSSecretKey=Secret Key
+        - AWSSessionToken=SessionToken-Optional
+        - LambdaTimeout=900
+        - LambdaMemory=3008
+        - DisableSpillEncryption=true
+
